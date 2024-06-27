@@ -1,4 +1,3 @@
-// TicketNFT.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -11,15 +10,15 @@ contract TicketNFT is ERC721, Ownable {
 
     constructor() ERC721("EventTicket", "ETICKET") {}
 
-    function mintTicket(address to, string memory tokenURI) external onlyOwner {
+    function mintTicket(address to, string memory _tokenURI) external onlyOwner {
         uint256 tokenId = nextTokenId;
         nextTokenId++;
         _safeMint(to, tokenId);
-        _setTokenURI(tokenId, tokenURI);
+        _setTokenURI(tokenId, _tokenURI);
     }
 
-    function _setTokenURI(uint256 tokenId, string memory tokenURI) internal {
-        _tokenURIs[tokenId] = tokenURI;
+    function _setTokenURI(uint256 tokenId, string memory _tokenURI) internal {
+        _tokenURIs[tokenId] = _tokenURI;
     }
 
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
