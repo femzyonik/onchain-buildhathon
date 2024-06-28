@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract TicketNFT is ERC721, Ownable {
+contract TicketNFT is ERC721, Ownable(0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f) {
     uint256 public nextTokenId;
     mapping(uint256 => string) private _tokenURIs;
 
